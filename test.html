@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        h1 {
+            font-size: 20vmin;
+            font-family: serif;
+            font-weight: normal;
+            font-style: italic;
+            line-height: 1;
+
+        }
+
+        .translate {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .b-b {
+            border: 2px solid transparent;
+        }
+
+        .b-b:active,
+        .b-b:hover {
+            color: hsl(60, 100%, 40%);
+            border-bottom: 2px solid hsl(60, 100%, 40%)
+        }
+
+        .modal {
+            background: hsla(0, 0%, 0%, .8);
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: all .9s ease;
+        }
+
+        .form {
+            background-color: hsl(0, 0%, 100%, .5);
+            max-width: 625px;
+            width: 100%;
+        }
+
+        .btn {
+            top: 1em;
+            right: 1em;
+        }
+
+        .black {
+            color: hsl(0, 0%, 0%);
+            outline: none;
+            opacity: .8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="h-screen bg-red-500 relative text-white">
+        <img class="absolute w-full h-full object-cover "
+            src="https://media.istockphoto.com/vectors/cadillac-coupe-de-ville-color-black-background-illustration-vector-id1201116704?k=20&m=1201116704&s=612x612&w=0&h=ZmvOhbzHiAuYtjQ8lQAB2IEx2hvBkXg1es8sYXFE1Og="
+            alt="">
+        <div class="relative h-16 flex justify-center items-center">
+            <a href="#" class="tracking-widest mr-4 b-b text-xl" id="login">Login</a>
+            <span> | </span>
+            <a href="#" class="tracking-widest ml-4 b-b text-xl">Sign up</a>
+        </div>
+        <div class="absolute w-4/5 mx-auto translate ">
+            <h1 class="text-center sm:text-left">Chesca Chen's</h1>
+            <div class="sm:flex py-2 px-4 items-center mt-4">
+                <p class="text-center leading-none text-xl text-slate-800">Want to join our team?</p>
+                <a class="block text-center w-1/2 mx-auto my-2 sm:w-auto sm:inline sm:ml-2 rounded bg-yellow-500 hover:bg-yellow-600 px-3 py-1 leading-none text-lg"
+                    href="#">Click
+                    here</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal h-screen fixed flex justify-center items-center text-white hidden p-4">
+        <div class="form p-8 rounded-2xl relative">
+            <span class="absolute btn border py-1 px-2 rounded-lg hover:bg-red-500" id="close">close</span>
+            <form action="#" class="flex flex-col gap-4">
+                <h2 class="uppercase tracking-widest text-2xl">login</h2>
+                <input class="py-2 pl-4 black" type="text" placeholder="email">
+                <input class="py-2 pl-4 black" type="password" placeholder="password">
+                <button type="submit" class="py-1 px-2 rounded-lg bg-green-500 hover:bg-green-600">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var modal = $('.modal')
+            $('#login').on('click', () => {
+                if (modal.hasClass('hidden')) {
+                    modal.removeClass('hidden')
+                }
+            })
+            $('#close').on('click', () => {
+                modal.addClass('hidden')
+            })
+        })
+    </script>
+</body>
+
+</html>
